@@ -1,0 +1,17 @@
+{
+  "videos": [
+    {
+      "id": "f5f1bb7d-67ea-4c3a-b502-ea1b44e7cbd0",
+      "originalFilename": "f5f1bb7d-67ea-4c3a-b502-ea1b44e7cbd0.webm",
+      "createdAt": 1768471299901,
+      "views": 1,
+      "completions": 1
+    },
+    {
+      "id": "19edcd0b-0806-4816-81a9-e5263fea61a6",
+      "originalFilename": "19edcd0b-0806-4816-81a9-e5263fea61a6.webm",
+      "createdAt": 1768471356195,
+      "views": 2
+    }
+  ]
+}
