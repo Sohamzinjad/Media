@@ -1,0 +1,51 @@
+{
+  "videos": {
+    "test-video-1": {
+      "id": "test-video-1",
+      "filename": "rec-123.webm",
+      "views": 1,
+      "completions": 1,
+      "createdAt": "2026-01-15T09:59:03.499Z"
+    },
+    "dummy-id": {
+      "id": "dummy-id",
+      "views": 2,
+      "completions": 0,
+      "lastViewedAt": "2026-01-15T10:28:43.615Z"
+    },
+    "b713069e-c6ee-437f-81fd-05a1da04384c": {
+      "id": "b713069e-c6ee-437f-81fd-05a1da04384c",
+      "views": 1,
+      "completions": 1,
+      "lastViewedAt": "2026-01-15T10:29:52.095Z"
+    },
+    "89d80ebf-4e9c-42cf-af13-c9f3f296946e": {
+      "id": "89d80ebf-4e9c-42cf-af13-c9f3f296946e",
+      "filename": "89d80ebf-4e9c-42cf-af13-c9f3f296946e.webm",
+      "views": 0,
+      "completions": 0,
+      "createdAt": "2026-01-15T10:43:48.891Z"
+    },
+    "5f77a7ba-4427-4364-93b3-f195b232a245": {
+      "id": "5f77a7ba-4427-4364-93b3-f195b232a245",
+      "filename": "5f77a7ba-4427-4364-93b3-f195b232a245.webm",
+      "views": 3,
+      "completions": 1,
+      "createdAt": "2026-01-15T10:53:48.340Z"
+    },
+    "10bbab08-7b64-4df7-8e2a-06b115c29db8": {
+      "id": "10bbab08-7b64-4df7-8e2a-06b115c29db8",
+      "filename": "10bbab08-7b64-4df7-8e2a-06b115c29db8.webm",
+      "views": 4,
+      "completions": 3,
+      "createdAt": "2026-01-15T10:57:10.053Z"
+    },
+    "b8888a56-f531-44d5-ac39-92b239a5c8e5": {
+      "id": "b8888a56-f531-44d5-ac39-92b239a5c8e5",
+      "filename": "b8888a56-f531-44d5-ac39-92b239a5c8e5.webm",
+      "views": 2,
+      "completions": 0,
+      "createdAt": "2026-01-15T11:14:33.204Z"
+    }
+  }
+}

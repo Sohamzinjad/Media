@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Media Recorder MVP
 
-## Getting Started
+A lightweight, production-ready screen and microphone recorder built with Next.js. Features in-browser recording, server-side trimming, local file video sharing, and basic viewing analytics.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Browser-based Recording**: Captures screen and microphone using the standard MediaRecorder API.
+- **Trimming**: Server-side video trimming using `fluent-ffmpeg`.
+- **Sharing**: Generates unique shareable links for videos.
+- **Analytics**: Tracks unique views and watch completions.
+- **Storage**: File-based local storage (no cloud dependency).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Video Processing**: fluent-ffmpeg, ffmpeg-static
+- **Icons**: Lucide React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup
 
-## Learn More
+1.  **Clone & Install**
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  **Open in Browser**
+    Navigate to `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture & Decisions
 
-## Deploy on Vercel
+*   **Client-Side Recording**: Chosen for privacy and latency. The browser handles the heavy lifting of capturing the stream.
+*   **Server-Side Trimming**: Video editing in the browser (via WebAssembly) can be heavy and inconsistent. We offload trimming to the server using `ffmpeg` for reliability.
+*   **File-System Persistence**: For this MVP, we use the local filesystem (`public/uploads` and `data/db.json`) to avoid cloud setup complexity. In production, this would be replaced by S3/Blob Storage and a designated database (Postgres/Redis).
+*   **Fluent FFmpeg**: Used over executing raw shell commands for better safety and error handling.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tradeoffs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   **Ephemeral Storage**: videos are stored in `public/uploads`. On serverless deployments (like Vercel), these files will persist only for the duration of the function execution or be lost on redeploy. **Deployment requires a persistent filesystem (VPS/Docker volume).**
+*   **Memory Usage**: processing large video files for trimming loads them into memory buffers. For larger scale, streams should be used.
+*   **Browser Compatibility**: Relies on modern `getDisplayMedia` support (Chrome/Edge/Firefox/Safari 13+).
+
+## Future Improvements
+
+*   Cloud storage integration (AWS S3 / R2).
+*   User authentication for managing recordings.
+*   Transcoding layer (ensure all videos are optimized mp4/hls).
+*   Client-side trimming preview frames.
