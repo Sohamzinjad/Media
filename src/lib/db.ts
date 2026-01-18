@@ -36,7 +36,7 @@ export function readDB(): Database {
         // Basic validation/migration if needed (handle array vs object legacy)
         if (Array.isArray(parsed)) {
             const migrated: Database = { videos: {} };
-            parsed.forEach((v: any) => {
+            parsed.forEach((v: VideoData) => {
                 if (v.id) migrated.videos[v.id] = v;
             });
             writeDB(migrated);

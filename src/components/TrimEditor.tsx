@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { Scissors, Loader2, Play, Pause } from 'lucide-react';
+import { Scissors, Loader2 } from 'lucide-react';
 
 // For now, I'll just use 'any' or localized interface to avoid importing server code in client accidentally if db.ts has server-only deps (fs).
 // Actually db.ts imports 'fs', so it cannot be imported in client components.

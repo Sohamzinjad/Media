@@ -2,13 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Loader2, Mic, Video as VideoIcon, Square, Upload, Play } from 'lucide-react';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { Loader2, Mic, Video as VideoIcon, Square, Upload } from 'lucide-react';
 
-function cn(...inputs: (string | undefined | null | false)[]) {
-    return twMerge(clsx(inputs));
-}
 
 export function Recorder() {
     const [stream, setStream] = useState<MediaStream | null>(null);

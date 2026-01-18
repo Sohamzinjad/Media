@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Video, StopCircle, Play, Scissors, Upload } from 'lucide-react';
-import Link from 'next/link';
+import { Video, StopCircle, Scissors, Upload } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
